@@ -35,17 +35,11 @@ module.exports = function terminal () {
       function jsonImage (img) {
         img.toJSON = toImageJSON;
       }
-
       function toJSON () {
-        return _.pluck(this, Object.keys(this).filter(function (key) {
-          return ['social', 'styles', 'html', 'body', 'generated'].indexOf(key) === -1;
-        }));
+        return _.omit(this, ['social', 'styles', 'html', 'body', 'generated']);
       }
-
       function toImageJSON () {
-        return _.pluck(this, Object.keys(this).filter(function (key) {
-          return key !== 'data';
-        }));
+        return _.omit(this, ['data']);
       }
     }
   };
