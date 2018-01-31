@@ -21,9 +21,9 @@ var client = campaign({
 client.send(...) // as usual
 ```
 
-# `terminal()`
+# `terminal(mapper)`
 
-no configuration is involved.
+an optional `mapper(model)` function can be provided to transform the parts of the model we want to print to the terminal.
 
 # license
 

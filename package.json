@@ -18,6 +18,7 @@
     "html-md-2": "3.0.0",
     "lodash": "4.17.4",
     "marked": "0.3.6",
-    "marked-terminal": "2.0.0"
+    "marked-terminal": "2.0.0",
+    "q-i": "2.0.1"
   }
 }
