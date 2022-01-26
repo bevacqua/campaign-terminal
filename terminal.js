@@ -1,17 +1,19 @@
 'use strict';
 
 const htmlmd = require('html-md-2');
-const marked = require('marked');
 const qi = require('q-i')
-const TerminalRenderer = require('marked-terminal');
-marked.setOptions = {
-  renderer: new TerminalRenderer()
-};
 
 module.exports = function terminal (modelMapper) {
   return {
     name: 'terminal',
-    send: function (model, done) {
+    send: async function (model, done) {
+      const marked = (await import('marked')).marked;
+      const TerminalRenderer = (await import('marked-terminal')).default;
+      console.log(marked);
+      marked.setOptions({
+        // Define custom renderer
+        renderer: new TerminalRenderer()
+      });
       const md = htmlmd(model.body);
       const term = marked(md);
 
