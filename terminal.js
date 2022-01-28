@@ -6,7 +6,7 @@ const qi = require('q-i')
 module.exports = function terminal (modelMapper) {
   return {
     name: 'terminal',
-    send: async function (model, done) {
+    send: async function (model) {
       const marked = (await import('marked')).marked;
       const TerminalRenderer = (await import('marked-terminal')).default;
       console.log(marked);
@@ -21,8 +21,6 @@ module.exports = function terminal (modelMapper) {
 
       console.log(qi.stringify(modelBits));
       console.log(term);
-
-      done();
     }
   };
 };
